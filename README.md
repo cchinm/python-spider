@@ -16,8 +16,8 @@
 
 ## entertainment娱乐类爬虫
 专门一些娱乐网站，如视频网站，娱乐新闻网等相关数据(直播数，直播内容，标签统计数据etc)
-  * [baidumap-创业园区地点信息收集](https://github.com/cchinm/python-spider/tree/master/travel/baidumap)
-  * [mobike-摩拜骑行数据收集](https://github.com/cchinm/python-spider/tree/master/travel)
+  * [bililive-哔哩哔哩直播房间数据收集](https://github.com/cchinm/python-spider/tree/master/entertainment/bililive)
+ 
   
  
  
