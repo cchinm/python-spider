@@ -1,4 +1,4 @@
-# -*- coding:UTF-8 -*-
+# -*- coding:UTF-8 -*
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')

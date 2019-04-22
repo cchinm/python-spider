@@ -5,7 +5,7 @@ from sqlalchemy import Column
 from sqlalchemy.engine import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('')
+engine = create_engine('yours mysqlurls')
 session = sessionmaker(bind=engine)
 base = declarative_base()
 
