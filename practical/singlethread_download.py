@@ -42,12 +42,8 @@ def download_file(filename:str, response:object, content_size:int):
             fp.flush()
             sys.stdout.write("\r[%s%s] %d%%" % ('█' * int(count), ' ' * (50 -int(count)), count*2))
             sys.stdout.flush()
-            time.sleep(.2)
+            time.sleep(.02)
     response.close()
 
 
 
-if __name__ == '__main__':
-    resp = response_from_url(url="https://blog.csdn.net/qq_35203425/article/details/80903769",
-                             headers={})
-    download_file(r"C:\Users\root\Downloads\test.txt",resp,1024)
