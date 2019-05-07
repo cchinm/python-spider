@@ -44,6 +44,8 @@ class SogoEngine(object):
                 '' No Time Limit)
         :param bool only_current_page: Use True to prove searching in this page /
             and Not Request next page.
+        :param tuple allow_domains: Allow domains.
+        :param tuple deny_domains: Deny domains.
         :return: A generator that yields URLs.
         """
 
