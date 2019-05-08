@@ -17,7 +17,7 @@
 ## entertainment娱乐类爬虫
 专门一些娱乐网站，如视频网站，娱乐新闻网等相关数据(直播数，直播内容，标签统计数据etc)
   * [bililive-哔哩哔哩直播房间数据收集](https://github.com/cchinm/python-spider/tree/master/entertainment/bililive)
- 
+  * [pybrowser-模拟搜狗搜索的python工具](https://github.com/cchinm/python-spider/tree/master/entertainment/pybrowser)
 
 ## practical实用类工具
 公共类工具列表
