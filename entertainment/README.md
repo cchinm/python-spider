@@ -47,3 +47,8 @@
 执行说明
     
     scrapy crawl bililive
+    
+# pybrowser
+
+    Just searching something with Python in Sogo.
+    
