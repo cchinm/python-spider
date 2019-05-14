@@ -2,10 +2,43 @@
 import io
 import requests
 from fontTools.ttLib import TTFont
+# pymaoyanfont a tools to parse maoyan's font
+#
+# init object.
+# from pymaoyanfont.parsefont import MaoyanFont
+#
+# p = MaoyanFont()
+#
+# # use local woff file, compared with the base woff file.
+# file = 'Local WOFF file path'
+# result = p.load(file)
+# print(result)
+# >> > {'uniE631': 6, 'uniE659': 0, 'uniE715': 9, 'uniE923': 7, 'uniF024': 8, 'uniF255': 4, 'uniF467': 3, 'uniF4E8': 2,
+#       'uniF533': 5, 'uniF7A7': 1}
+#
+# # Download online content and compared with base woff files
+# from base64 import b64decode
+#
+# s = 'webpage base64 encoded content'
+# s = b64decode(s)
+#
+# result = p.loads(s)
+# print(result)
+# >> > {'uniE188': 7, 'uniE7CA': 8, 'uniE7F2': 0, 'uniE8E6': 2, 'uniE8F1': 1, 'uniEB56': 3, 'uniECDF': 5, 'uniED63': 9,
+#       'uniF1FA': 4, 'uniF8A6': 6}
+#
+# # Get the page source code
+# p.uni_to_raw()
+# >> > {'&#e188;': 7, '&#e7ca;': 8, '&#e7f2;': 0, '&#e8e6;': 2, '&#e8f1;': 1, '&#eb56;': 3, '&#ecdf;': 5, '&#ed63;': 9,
+#       '&#f1fa;': 4, '&#f8a6;': 6}
+# # Convert character code to decimal
+# p.uni_to_int()
+# >> > {57736: 7, 59338: 8, 59378: 0, 59622: 2, 59633: 1, 60246: 3, 60639: 5, 60771: 9, 61946: 4, 63654: 6}
 
 
-
-
+import os
+_t = os.path.join(os.path.realpath(__file__), '..')
+data_dir = os.path.abspath(os.path.join(_t, './data/base.woff'))
 
 class MaoyanFont(object):
 
@@ -73,7 +106,7 @@ class MaoyanFont(object):
         parse_font = TTFont(file)
         if base_font is None:
             if base_file is None:
-                base_file = './font/base.woff'
+                base_file = data_dir
             base_font = TTFont(base_file)
         self._glyphs_map = self._parseFont(parse_font, base_font)
         return self._glyphs_map
@@ -89,7 +122,7 @@ class MaoyanFont(object):
         parse_font = TTFont(io.BytesIO(s))
         if base_font is None:
             if base_file is None:
-                base_file = "./font/base.woff"
+                base_file = data_dir
             base_font = TTFont(base_file)
         self._glyphs_map = self._parseFont(parse_font, base_font)
         return self._glyphs_map
@@ -116,5 +149,4 @@ class MaoyanFont(object):
 
     def __del__(self):
         del self
-
 
