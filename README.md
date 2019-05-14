@@ -23,7 +23,7 @@
 公共类工具列表
  * [singlethread-download单线程文件下载](https://github.com/cchinm/python-spider/tree/master/practical)
  * [multithread-download多线程文件下载](https://github.com/cchinm/python-spider/tree/master/practical)
- * [parsefont 猫眼字体解析工具](https://github.com/cchinm/python-spider/tree/master/practical)
+ * [parsefont 猫眼字体解析工具](https://github.com/cchinm/python-spider/tree/master/practical/parsefont)
   
  
  
