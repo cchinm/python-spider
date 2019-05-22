@@ -3,4 +3,5 @@
 
 
 # 方法
-将spiders下的spider文件的继承方法改为继承genspider.genspider.IceCrawlSpider
+将spiders下的spider文件的继承方法改为继承genspider.Spider或者genspider.IceCrawlSpider。
+
