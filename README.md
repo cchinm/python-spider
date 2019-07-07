@@ -27,6 +27,7 @@
  * [ice-scrapy 基于ice通信的scrapydemo](https://github.com/cchinm/python-spider/tree/master/practical/ice-scrapy)
  * [Hash 常用哈希函数](https://github.com/cchinm/python-spider/tree/master/practical)
  * [simple—transapi.py简单翻译api](https://github.com/cchinm/python-spider/tree/master/practical)
+ * [proxy构建代理池](https://github.com/cchinm/python-spider/tree/master/practical/proxy)
 
  
  
