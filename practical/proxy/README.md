@@ -23,6 +23,7 @@
     - crawler.py
     - db.py
     - valid_celery.py
+    - api.py
 
 
 ## `__init__.py`
@@ -243,54 +244,8 @@
 ## crawl_proxy.py
 在这里我没有使用celery的定时方法，采取的是while循环进行重复采集。
 
-    # author: Z.M Z
-
-    import requests
-    import lxml.html
-    import valid_celery
-    import time
-    
-    
-    HEADERS = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36",
-    }
-    
-    
-    def crawl_proxy(rules):
-        url = rules['url']
-        host = rules['host']
-        port = rules['port']
-        req = requests.get(url, headers=HEADERS)
-        resp = lxml.html.fromstring(req.text)
-        host_text = resp.xpath(host)
-        port_text = resp.xpath(port)
-        print(host_text)
-        print(port_text)
-        for i in range(len(host_text
-            # 验证代理
-            valid_celery.valid_proxy.delay(host_text[i], port_text[i])
-    
-    
-    def clean_proxy():
-        valid_celery.clean_proxy.delay()
-    
-    
-    if __name__ == '__main__':
-        count = 0
-        while True:
-            for i in range(1,3):
-                rules = {
-                'url':'https://www.xicidaili.com/wt/%d'%i,
-                'host':'//*[@id="ip_list"]//tr/td[2]/text()',
-                'port':'//*[@id="ip_list"]//tr/td[3]/text()'
-                }
-                # 每五分钟爬取一次代理
-                crawl_proxy(rules)
-            time.sleep(300)
-            count += 1
-            if count == 3:
-                count = 0
-                # 每十分钟， 验证代理
-                valid_celery.clean_proxy.delay()
+## api.py
+这里我使用sanic起服务端。具体模块使用参看官网文档
 
 
 # 项目环境以及脚本启动
