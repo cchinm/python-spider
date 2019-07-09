@@ -50,7 +50,7 @@ class RedisHandler(DBbaseHandler):
         return self.__conn.execute_command("ZADD", name, value, key)
 
     def all(self, name):
-        return self.__conn.zscan(name)
+        return self.__conn.zrange(name, 0, -1)
 
     def has(self, key, name):
         return self.__conn.zscore(name, key) is not None

@@ -5,7 +5,7 @@
 
 import sanic
 from sanic import response
-from practical.proxy.crawler import redis_conn
+from crawler import redis_conn
 app = sanic.Sanic(__name__)
 
 @app.route("/api", methods=['POST', 'GET'])
@@ -13,11 +13,10 @@ async def api(request):
     try:
         form = request.args
         signture = form['sign']
-        # 判断是否符合规则
-        if signture == 'testtesttesttest':
-            t = redis_conn.zscan("http_proxy")
-            return response.json(t)
-        return response.redirect("https://www.baobeihuijia.com/index.aspx")
+
+        t = redis_conn.all("http_proxy")[:10]
+        return response.json(t)
+        # return response.redirect("https://www.baobeihuijia.com/index.aspx")
     except:
         return response.redirect("https://www.baobeihuijia.com/index.aspx")
 
@@ -25,5 +24,7 @@ async def api(request):
 def home(request):
     return response.redirect("https://www.baobeihuijia.com/index.aspx")
 
+
+import pickle
 if __name__ == '__main__':
     app.run()
