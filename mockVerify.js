@@ -48,3 +48,4 @@ function mockVerify(btnSelector){
         }
     }, 60); 
 }
+window.mockVerify = mockVerify;
